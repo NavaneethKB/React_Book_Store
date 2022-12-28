@@ -5,13 +5,15 @@ import { useEffect } from 'react';
 import Cards from './Cards';
 import Addbook from './Addbook';
 import "../styles/index.css";
-const Amazon = ({handleClick,popup,setPopUp}) => {
+const Amazon = ({handleClick,popup,setPopUp,admin}) => {
  
   const[shopdata,setShopdata]=useState(list)
+  const[bookdata,setBookdata]=useState(list)
 
-  useEffect(()=>{
-    alert("hai")
-   },[shopdata])
+  const handleRemove=()=>{
+alert("id")
+  }
+
  const newValue={
     id: null,
     title: null,
@@ -32,7 +34,9 @@ setShopdata([...shopdata,newValue])
 setPopUp(false)
 }
 const finaldata = [...shopdata].sort((a, b) => a.id - b.id);
+
   return (
+   
     <section 
  
     >
@@ -40,7 +44,7 @@ const finaldata = [...shopdata].sort((a, b) => a.id - b.id);
         {
           
             finaldata.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cards item={item}  admin={admin} shopdata={shopdata} setShopdata={setShopdata}   key={item.id} handleClick={handleClick} />
             ))
             
         }

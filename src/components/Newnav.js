@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import '../styles/newnav.css';
-const Newnav = ({size, setShow,admin,popup,setPopUp}) => (
+import logout from "../logout.png"
+const Newnav = ({size, setShow,setUserAuth,admin,popup,setPopUp,userAuth,setLogflag,setSignup,signup}) => {
+    const hanleLogout=()=>{
+        window.location.reload();
+        return
+    }
+const handleSignUp=()=>{
+    setLogflag(true)
+   setSignup(true)
+
+
+}
+    return(
     <header className='navbar'>
         <div  className='navbar__title navbar__item'>
         <span  onClick={()=>setShow(true)}>
@@ -19,16 +31,20 @@ const Newnav = ({size, setShow,admin,popup,setPopUp}) => (
             ()=>setPopUp(true)}
          class="fa fa-plus-square" aria-hidden="true"></i>
          }
-        <div className=' nav_button'>Log In</div>
-        <button className=' nav_button' >Sign Up</button>
-          
+       { !userAuth &&<div onClick={()=>setLogflag(true)} className=' nav_button'>Log In</div>}
+       { !userAuth&& <button onClick={handleSignUp} className=' nav_button'   >Sign Up</button>}
+       
         <div className="cart" onClick={()=>setShow(false)}>
                 <span>
                     <i className="fas fa-cart-plus"></i>
                 </span>
                 <span>{size}</span>
             </div>
+           {userAuth&& < img src={logout} width="55" height="55" 
+            onClick={hanleLogout}
+            style={{padding:"5px"}}/>}
     </header>
-);
+)
+        };
 
 export default Newnav

@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
 import { useEffect } from 'react';
-import "../styles/cart.css";
 
+import Yourorders from './Youroders';
+import "../styles/cart.css";
 const Cart = ({cart, setCart, handleChange}) => {
     const [price, setPrice] = useState(0);
-
+    const [orders,setOrders]=useState(false)
     const handlePrice = ()=>{
         let ans = 0;
         cart.map((item)=>(
@@ -27,8 +28,10 @@ const Cart = ({cart, setCart, handleChange}) => {
     <div>
 
     <h1>Your Orders</h1>
-    <article>
-
+    {  !orders&&<article style={{
+        width:"70%"
+    }}>
+ 
         {
             cart?.map((item)=>(
                 <div className="cart_box" key={item.id}>
@@ -49,10 +52,11 @@ const Cart = ({cart, setCart, handleChange}) => {
                 </div>
             ))}
         <div className='total'>
-            <span className='totalcart'>Total Amount To be Paid</span>
-            <span className='totalcart'>Rs {price}</span>
+            <span className='totalcart'>Total Orders</span>
+            <button onClick={()=>setOrders(true)} className='paynow'> Pay Now <br/>Rs {price}</button>
         </div>
-    </article>
+    </article> }
+    { orders&&<Yourorders cart={cart} setCart={setCart} handleChange={handleChange}/> }
     </div>
   )
 }

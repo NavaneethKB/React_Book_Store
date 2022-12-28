@@ -69,6 +69,21 @@ const fun1=()=>{
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
+                                <Label for='email' sm={3}>
+                                    Email
+                                </Label>
+                                <Col sm={9}>
+                                    <Input
+                                        type='email'
+                                        name='email'
+                                        id='email'
+                                        placeholder='provide your email'
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                    />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row>
                                 <Label for='password' sm={3}>
                                     Password
                                 </Label>
