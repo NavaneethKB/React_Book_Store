@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
-import '../styles/newnav.css';
+import '../styles/navbar.css';
 import logout from "../logout.png"
-const Newnav = ({size, setShow,setUserAuth,admin,popup,setPopUp,userAuth,setLogflag,setSignup,signup}) => {
+const Navbar = ({size, setShow,setUserAuth,admin,popup,setPopUp,userAuth,setLogflag,setSignup,signup}) => {
     const hanleLogout=()=>{
         window.location.reload();
-        return
+        
     }
 const handleSignUp=()=>{
     setLogflag(true)
    setSignup(true)
 
 
+
+}
+const handleLogIn=()=>{
+    setLogflag(true)
+   setSignup(false)
+
+
+
+}
+const handleHome=()=>{
+setLogflag(false)
+setShow(true)
 }
     return(
     <header className='navbar'>
         <div  className='navbar__title navbar__item'>
-        <span  onClick={()=>setShow(true)}>
+        <span onClick={handleHome}>
              The Book Store
             </span>
      
@@ -31,7 +43,7 @@ const handleSignUp=()=>{
             ()=>setPopUp(true)}
          class="fa fa-plus-square" aria-hidden="true"></i>
          }
-       { !userAuth &&<div onClick={()=>setLogflag(true)} className=' nav_button'>Log In</div>}
+       { !userAuth &&<div onClick={handleLogIn} className=' nav_button'>Log In</div>}
        { !userAuth&& <button onClick={handleSignUp} className=' nav_button'   >Sign Up</button>}
        
         <div className="cart" onClick={()=>setShow(false)}>
@@ -47,4 +59,4 @@ const handleSignUp=()=>{
 )
         };
 
-export default Newnav
+export default Navbar

@@ -11,8 +11,11 @@ const Cards = ({item, handleClick,shopdata,setShopdata,admin}) => {
       title, author, price, img} = item;
 
   return (
+   
     <div className="cards" >
-   { admin&& <i onClick={()=>{handleRemove(item.id)}} className="fa fa-window-close closebtn" aria-hidden="true"></i>}
+   { admin&& <i onClick={()=>{handleRemove(item.id)}} className="fa fa-window-close closebtn" aria-hidden="true">
+    
+    </i>}
         <div className="image_box">
             <img src={img} alt="Image" />
         </div>

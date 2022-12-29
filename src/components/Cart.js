@@ -26,8 +26,9 @@ const Cart = ({cart, setCart, handleChange}) => {
 
   return (
     <div>
-
-    <h1>Your Orders</h1>
+   
+    <h1>{orders?"Order Summary":"Your Orders"}
+    </h1>
     {  !orders&&<article style={{
         width:"70%"
     }}>
@@ -56,7 +57,20 @@ const Cart = ({cart, setCart, handleChange}) => {
             <button onClick={()=>setOrders(true)} className='paynow'> Pay Now <br/>Rs {price}</button>
         </div>
     </article> }
-    { orders&&<Yourorders cart={cart} setCart={setCart} handleChange={handleChange}/> }
+
+    { orders&&
+    <div style={
+      {
+
+      }
+    }>
+ 
+    <Yourorders style={{
+   
+            }} cart={cart} setCart={setCart} handleChange={handleChange}/>
+
+    </div> }
+   
     </div>
   )
 }

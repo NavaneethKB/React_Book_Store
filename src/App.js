@@ -1,10 +1,10 @@
 import React , {useState} from 'react';
 
-import Newnav from './components/Newnav';
-import Amazon from './components/Amazon';
+import Navbar from './components/Navbar';
+import Shop from './components/Shop';
 import Cart from './components/Cart';
-import './styles/amazon.css';
-import './styles/newnav.css';
+import './styles/shop.css';
+import './styles/navbar.css';
 import "./styles/index.css";
 
 
@@ -14,8 +14,7 @@ import "./styles/index.css";
 
 
 
-import Addbook from './components/Addbook';
-import SignIn from './components/Signin';
+
 import Login from './components/Login';
 
 const App = () => {
@@ -24,12 +23,19 @@ const App = () => {
 	const [warning, setWarning] = useState(false);
 
 	const[popup,setPopUp]=useState(false)
-	const[logflag,setLogflag]=useState(false)
+
+
+
 
 	const[admin,setAdmin]=useState(false)
 	const[userAuth,setUserAuth]=useState(false)
-	const [signup,setSignup]=useState(false)
+
+
+
+	const[logflag,setLogflag]=useState(false)
+const [signup,setSignup]=useState(false)
 	const handleClick = (item)=>{
+		
 		if(userAuth==false){alert("Please Sign In to Add into Cart")
 		return}
 		let isPresent = false;
@@ -67,9 +73,9 @@ const App = () => {
 	
 	>
 	
-	 <div className={0?"darkover":null}></div>
+	 <div className={popup?"darkover":null}></div>
 	 
-	 		<Newnav  signup={signup} setSignup={setSignup} logflag={logflag} setLogflag={setLogflag}  setUserAuth={setUserAuth
+	 		<Navbar  signup={signup} setSignup={setSignup} logflag={logflag} setLogflag={setLogflag}  setUserAuth={setUserAuth
 			} userAuth={userAuth} size={cart.length} admin={admin} popup={false} setPopUp={setPopUp} setShow={setShow} />
 		{
 			
@@ -77,7 +83,7 @@ const App = () => {
 				signup={signup} setSignup={setSignup}
 			/>
 			:
-			show  ? <Amazon popup={popup} handleClick={handleClick} setPopUp={setPopUp} admin={admin} /> : 
+			show  ? <Shop popup={popup} handleClick={handleClick} setPopUp={setPopUp} admin={admin} /> : 
 			<Cart cart={cart} setCart={setCart} handleChange={handleChange} />
 		}
 		{

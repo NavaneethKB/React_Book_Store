@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import list from '../data';
-import '../styles/amazon.css';
+import '../styles/shop.css';
 import { useEffect } from 'react';
 import Cards from './Cards';
-import Addbook from './Addbook';
+
 import "../styles/index.css";
 const Amazon = ({handleClick,popup,setPopUp,admin}) => {
  
   const[shopdata,setShopdata]=useState(list)
-  const[bookdata,setBookdata]=useState(list)
+  
 
   const handleRemove=()=>{
 alert("id")
@@ -25,7 +25,7 @@ alert("id")
 const handleSubmit=(e)=>{
   e.preventDefault()
   
-newValue.id=0
+newValue.id=Math.random() * (0 - -100) + -100;
 
 
 setShopdata([...shopdata,newValue])
@@ -44,7 +44,9 @@ const finaldata = [...shopdata].sort((a, b) => a.id - b.id);
         {
           
             finaldata.map((item)=>(
-                <Cards item={item}  admin={admin} shopdata={shopdata} setShopdata={setShopdata}   key={item.id} handleClick={handleClick} />
+                <Cards
+                 item={item}  admin={admin} shopdata={shopdata} setShopdata={setShopdata} 
+                   key={item.id} handleClick={handleClick} />
             ))
             
         }

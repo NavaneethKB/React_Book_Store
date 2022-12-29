@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import '../styles/login.css';
-import Newnav from '../components/Newnav';
+
 const Login = ({setUserAuth,setAdmin,setLogflag,signup,setSignup}) => {
     const loginClick = (e)=>
     {

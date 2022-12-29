@@ -26,11 +26,10 @@ const Yourorders = ({cart, setCart, handleChange}) => {
 
   return (
     <React.Fragment>
-<div style={{
-    Zindex:"-10"
-}} className={0 ?"darkover":null}></div>    
+    
         <article style={{
-       
+           zIindex: "10",
+    display: "block"
     }}>
 
             {
@@ -48,20 +47,13 @@ const Yourorders = ({cart, setCart, handleChange}) => {
                         </div>
                     </div>
                 ))}
-            <div className='total'>
+            <div style={{
+
+            }} className='total'>
                 <span className='totalcart'>Total Amount to be paid</span>
             
                 
-    <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text">
-        <span style={{
-          color:"#000"  
-        }} >Rs {price}</span>
-        </div>
-      </svg>
-    </div>
+                <button class="button-64" role="button"><span style={{color:"white"}} class="text">Rs {price}</span></button>
             </div>
         </article>
         
